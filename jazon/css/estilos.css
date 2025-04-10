@@ -1,0 +1,121 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+    
+
+/* Select */
+.form-select {
+    font-size: 16px;
+    background-color: #fffcd1f6;
+    color: #efb810;
+    border: 1px solid #efb810;
+    border-radius: 10px;
+    width: 250px; /* Ancho fijo */
+    min-width: 200px; /* Ancho mínimo para evitar compresión */
+}
+
+
+/* Media Queries para pantallas pequeñas */
+@media screen and (max-width: 768px) {
+    .section-title {
+        font-size: 30px; /* Ajusta el tamaño del título */
+    }
+
+    .form-select {
+        width: 90%; /* Ocupa el 90% del ancho en pantallas pequeñas */
+        min-width: unset; /* Elimina el ancho mínimo */
+    }
+
+    .btn2 {
+        width: 100%; /* Acomoda el botón al ancho completo */
+        text-align: center;
+    }
+}
+
+
+.btn3 {
+    background-color: #ffb920; /* Naranja */
+    color: white;
+    text-decoration: none;
+    padding: 0.75rem 1rem;
+    border: 1px #ffc400 solid;
+    border-radius: 5px;
+    font-size: 1.2rem; /* Texto más grande */
+    margin-bottom: 5vh;
+    text-align: center;
+    display: inline-block;
+}
+.btn3:hover {
+    background-color: #ff9a00; /* Naranja más oscuro */
+    border: 2px #ffffff solid;
+}
+.btn2 {
+    background-color: #ffb920; /* Naranja */
+    color: white;
+    text-decoration: none;
+    padding: 0.75rem 1rem;
+    border: 1px #ffc400 solid;
+    border-radius: 5px;
+    font-size: 1.2rem; /* Texto más grande */
+    margin: 1rem 0; /* Márgenes arriba y abajo */
+    text-align: center;
+  
+    display: inline-block;
+}
+.btn2:hover {
+    background-color: #ffffff; 
+    color: #ffb920;/* Naranja más oscuro */
+    border: 2px #ffc400 solid;
+}
+
+.flex-container {
+    display: flex;  /* Activa Flexbox */
+    align-items: center;  /* Alinea verticalmente */
+    gap: 15px;  /* Espacio entre los elementos */
+}
+
+.flex-container label {
+    margin-right: 10px;  /* Espacio entre el label y el select */
+}
+
+.flex-container select {
+    width: 200px;  /* Ajusta el ancho del select si es necesario */
+}
+
+.flex-container button {
+    padding: 10px 20px;
+    background-color: #ffc421;
+    color: #fff;
+    border: 1px solid #efb810;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.flex-container button:hover {
+    background-color: #ffbf00;
+}
+
+.btn1 {
+    background-color: #ffb920; /* Naranja */
+    color: white;
+    text-decoration: none;
+    padding: 0.75rem 1rem;
+    border: 1px #ffc400 solid;
+    border-radius: 5px;
+    font-size: 1.2rem; /* Texto más grande */
+    margin-bottom: 5vh;
+    text-align: center;
+    display: inline-block;
+}
+.btn1:hover {
+    background-color: #ff9a00; /* Naranja más oscuro */
+    border: 2px #ffffff solid;
+}
+

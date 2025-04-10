@@ -1,0 +1,105 @@
+.container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    border: 2px solid #efb810;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 3% auto 1%; /* Centra el contenedor horizontalmente */
+    text-align: left;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #efb810;
+    color: #efb810;
+}
+
+label {
+    text-align: left;
+    margin: 10px;
+    width: 50%;
+    font-size: 17px;
+    color: #666666;
+}
+
+form select {
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    background-color: #fffcd1f6;
+    color: rgb(92, 92, 92);
+    border: 2px solid #ffc825;
+    width: 100%; /* Ajusta el ancho para que ocupe todo el espacio disponible */
+    border-radius: 10px;
+}
+
+form select:hover {
+    background-color: #ffec7e;
+    border-color: #ffec7e;
+    color: #646464;
+}
+
+textarea {
+    width: 100%; /* Ajusta el ancho para ocupar todo el espacio disponible */
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ffc825;
+    border-radius: 8px;
+    margin-bottom: 20px; /* Agrega espacio debajo */
+}
+
+form input[type="submit"] {
+    background-color: #ffd858;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 15px;
+    font-size: 16px;
+    height: 50px;
+    width: 50%; /* Ajusta el ancho para centrar */
+    margin: 0 auto; /* Centra horizontalmente */
+    display: block; /* Para asegurar que el botón se centre */
+    border: none;
+    cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+    background-color: #ffc400;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+}
+
+.btn2 {
+    background-color: #ffb920; /* Naranja */
+    color: white;
+    text-decoration: none;
+    padding: 0.75rem 1rem;
+    border: 1px #ffc400 solid;
+    border-radius: 5px;
+    font-size: 1.2rem; /* Texto más grande */
+    margin-bottom: 5vh;
+    text-align: center;
+    display: inline-block;
+}
+.btn2:hover {
+    background-color: #ff9a00; /* Naranja más oscuro */
+    border: 2px #ffffff solid;
+}
+.btn3 {
+    background-color: #ffb920; /* Naranja */
+    color: white;
+    text-decoration: none;
+    padding: 0.75rem 1rem;
+    border: 1px #ffc400 solid;
+    border-radius: 5px;
+    font-size: 1.2rem; /* Texto más grande */
+    margin: 1rem 0; /* Márgenes arriba y abajo */
+    text-align: center;
+    display: inline-block;
+}
+.btn3:hover {
+    background-color: #ffffff; 
+    color: #ffb920;/* Naranja más oscuro */
+    border: 2px #ffc400 solid;
+}
