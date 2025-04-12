@@ -13,9 +13,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $correo = $_POST['correo'];
     $habilitado = 1;
     $id_zona = !empty($_POST['id_zona']) ? $_POST['id_zona'] : null;
+    $id_rol = !empty($_POST['id_rol']) ? $_POST['id_rol'] : null;
 
-    $usuario = $_POST['usuario_generado'];
-    $contrasena = $_POST['contrasena_generada'];
+    $inicial_nombre = substr($nombre, 0, 1);
+    $inicial_pat = substr($apellido_pat, 0, 1);
+    $inicial_mat = substr($apellido_mat, 0, 1);
+    $numero_aleatorio = rand(100, 999);
+
+    $usuario = $inicial_nombre . $inicial_pat . $inicial_mat . $numero_aleatorio;
+
+    $numero_aleatorio = rand(100, 999);
+    $contrasena = $inicial_nombre . $inicial_pat . $inicial_mat . $numero_aleatorio;
 
     // Validación de año de nacimiento
     $anio_nacimiento = intval(date('Y', strtotime($fecha_nacimiento)));
@@ -30,17 +38,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt_contacto->bindParam(':habilitado', $habilitado);
 
         if ($stmt_contacto->execute()) {
+            $id_contacto = $conn->lastInsertId(); // Captura aquí
+
             // Insertar usuario generado en la tabla de usuarios con id_rol = 1
             $sql_usuario = "INSERT INTO usuarios (usuario, contrasena, habilitado, id_rol)
-                            VALUES (:usuario, :contrasena, :habilitado, 1)";
+                            VALUES (:usuario, :contrasena, :habilitado, :id_rol)";
             $stmt_usuario = $conn->prepare($sql_usuario);
             $stmt_usuario->bindParam(':usuario', $usuario);
             $stmt_usuario->bindParam(':contrasena', $contrasena);
             $stmt_usuario->bindParam(':habilitado', $habilitado);
+            $stmt_usuario->bindParam(':id_rol', $id_rol);
 
             if ($stmt_usuario->execute()) {
                 $id_usuario = $conn->lastInsertId(); // Obtener ID del usuario recién insertado
-                $id_contacto = $conn->lastInsertId(); // Obtener ID del contacto recién insertado
 
                 // 2. Insertar en la tabla asociados
                 $sql_asociado = "INSERT INTO asociados (nombre, Apellido_Pat, Apellido_Mat, fecha_nacimiento, habilitado, id_contacto, id_zona, id_usuario)
@@ -57,8 +67,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                 if ($stmt_asociado->execute()) {
                     echo "<script>
-                            alert('asociado agregado exitosamente');
+                            alert('Usuario generado: $usuario\\nContraseña generada: $contrasena');
+                            alert('Asociado agregado exitosamente');
+                            window.location.href = '../listas/lst_asociados.php';
                         </script>";
+
                     exit();
                 } else {
                     echo "<div class='alert alert-danger text-center'>Error al agregar asociado: " . $conn->errorInfo()[2] . "</div>";
@@ -70,26 +83,32 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             echo "<div class='alert alert-danger text-center'>Error al agregar contacto: " . $conn->errorInfo()[2] . "</div>";
         }
     }
+} else {
+    echo "datos no recibidos";
 }
 ?>
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>Agregar Asociado</title>
-    
+
 </head>
 
 <body>
-    <?php include '../../includes/header.php'; ?>
+    <?php include '../../includes/header2.php'; ?>
 
     <div class="container mt-5">
         <h2 class="text-center">Agregar Asociado</h2>
         <form method="POST">
             <?php include '../componentes/form_asociado.php'; ?>
+
             <div class="text-center">
                 <button type="submit" class="btn btn-primary">Agregar Asociado</button>
                 <a href="javascript:history.back()" class="btn btn-secondary">Volver</a>
+                <a href="../listas/lst_asociados.php" class="btn btn-secondary">Lista</a>
+
             </div>
         </form>
     </div>
@@ -97,34 +116,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <?php include '../../includes/footer.php'; ?>
 </body>
 
-<!-- Script para mostrar los valores generados en los campos -->
-<script>
-    document.getElementById('usuario').addEventListener('focus', function () {
-        var nombre = document.querySelector('input[name="nombre"]').value;
-        var apellidoPat = document.querySelector('input[name="apellido_pat"]').value;
-        var apellidoMat = document.querySelector('input[name="apellido_mat"]').value;
 
-        if (nombre && apellidoPat && apellidoMat) {
-            var usuario = nombre.charAt(0).toUpperCase() + apellidoPat.charAt(0).toUpperCase() + apellidoMat.charAt(0).toUpperCase() + Math.floor(Math.random() * (999 - 100 + 1)) + 100;
-            var contrasena = nombre.charAt(0).toUpperCase() + apellidoPat.charAt(0).toUpperCase() + apellidoMat.charAt(0).toUpperCase() + Math.floor(Math.random() * (999 - 100 + 1)) + 100;
-            document.getElementById('usuario').value = usuario;
-            document.getElementById('contrasena').value = contrasena;
-
-            // Asignar a los campos ocultos para enviar con el formulario
-            document.getElementById('usuario_generado').value = usuario;
-            document.getElementById('contrasena_generada').value = contrasena;
-        }
-    });
-    document.querySelector("form").addEventListener("submit", function (event) {
-        var telefono = document.getElementById("contacto").value;
-        var telefonoPattern = /^[67][0-9]{7}$/;
-
-        if (!telefonoPattern.test(telefono)) {
-            alert("El teléfono debe empezar con 7 o 6 y tener 8 dígitos.");
-            event.preventDefault(); // Previene el envío del formulario si la validación falla
-        }
-    });
-</script>
 </body>
 
 </html>

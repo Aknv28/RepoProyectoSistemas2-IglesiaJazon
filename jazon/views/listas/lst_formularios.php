@@ -13,6 +13,9 @@ $stmt = $conn->prepare($sql);
 $stmt->bindParam(':habilitado', $habilitado, PDO::PARAM_INT);
 $stmt->execute();
 $formularios = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+$habilitado = isset($_GET['habilitado']) ? $_GET['habilitado'] : 1; // Por defecto, se muestran habilitados
+
 ?>
 
 <!DOCTYPE html>
@@ -28,7 +31,7 @@ $formularios = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </head>
 
 <body>
-    <?php include '../../includes/header.php'; ?>
+    <?php include '../../includes/header2.php'; ?>
     <div class="container mt-5">
         <h2 class="text-center">Listado de Formularios</h2>
 

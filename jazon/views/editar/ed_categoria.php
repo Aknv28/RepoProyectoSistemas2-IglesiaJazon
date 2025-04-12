@@ -59,14 +59,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 
 <body>
-    <?php include '../../includes/header.php'; ?>
+    <?php include '../../includes/header2.php'; ?>
     <div class="container mt-5">
         <h2 class="text-center">Editar Categoría</h2>
         <form method="POST">
-            <div class="mb-3">
-                <label for="nombre" class="form-label">Nombre de la Categoría</label>
-                <input type="text" name="nombre" id="nombre" class="form-control" value="<?= htmlspecialchars($categoria['Nombre']) ?>" required>
-            </div>
+            <?php include '../componentes/form_categoria.php'; ?>
+
             <div class="text-center">
                 <button type="submit" class="btn btn-primary">Actualizar Categoría</button>
                 <a href="javascript:history.back()" class="btn btn-secondary">Volver</a>

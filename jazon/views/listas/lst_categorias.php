@@ -28,7 +28,7 @@ $categorias = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </head>
 
 <body>
-    <?php include '../../includes/header.php'; ?>
+    <?php include '../../includes/header2.php'; ?>
     <div class="container mt-5">
         <h2 class="text-center">Listado de Categorías</h2>
 

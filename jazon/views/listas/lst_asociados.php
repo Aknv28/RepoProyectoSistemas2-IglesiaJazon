@@ -2,20 +2,22 @@
 require_once '../../includes/bd.php';
 $conn = Database::getInstance();
 
-// Determinar el valor de habilitado según el filtro
-$habilitado = isset($_GET['habilitado']) ? $_GET['habilitado'] : 1; // Por defecto, se muestran habilitados
+// Determinar el valor de habilitado según el filtro, por defecto se muestran los habilitados
+$habilitado = isset($_GET['habilitado']) ? (int) $_GET['habilitado'] : 1;
 
 // Recuperar los asociados basados en el valor de habilitado
 $sql = "SELECT a.Id_Asociado, a.nombre, a.Apellido_Pat, a.Apellido_Mat, a.fecha_nacimiento, a.habilitado, z.NombreZona, u.usuario
         FROM asociados a
         LEFT JOIN zona z ON a.id_zona = z.Id_Zona
         LEFT JOIN usuarios u ON a.id_usuario = u.id_usuario
-        WHERE a.habilitado = :habilitado";
+        WHERE a.habilitado = :habilitado";  // Filtra por habilitado
+
 $stmt = $conn->prepare($sql);
 $stmt->bindParam(':habilitado', $habilitado, PDO::PARAM_INT);
 $stmt->execute();
 $asociados = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
+
 
 <!DOCTYPE html>
 <html lang="es">
@@ -30,7 +32,7 @@ $asociados = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </head>
 
 <body>
-    <?php include '../../includes/header.php'; ?>
+    <?php include '../../includes/header2.php'; ?>
     <div class="container mt-5">
         <h2 class="text-center">Listado de Asociados</h2>
 
@@ -64,11 +66,16 @@ $asociados = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <td><?= htmlspecialchars($asociado['NombreZona'] ?? 'No asignada') ?></td>
                         <td><?= htmlspecialchars($asociado['usuario']) ?></td>
                         <td>
-                            <a href="../editar/ed_asociado.php?id=<?= $asociado['Id_Asociado'] ?>" class="btn btn-warning btn-sm">Editar</a>
+                            <a href="../editar/ed_asociado.php?id=<?= $asociado['Id_Asociado'] ?>&action=ed_asociados"
+                                class="btn btn-warning btn-sm">Editar</a>
+
                             <?php if ($asociado['habilitado'] == 1): ?>
-                                <a href="../eliminar/el_asociado.php?id=<?= $asociado['Id_Asociado'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de eliminar a este asociado?')">Eliminar</a>
+                                <a href="../eliminar/el_asociado.php?id=<?= $asociado['Id_Asociado'] ?>"
+                                    class="btn btn-danger btn-sm"
+                                    onclick="return confirm('¿Estás seguro de eliminar a este asociado?')">Eliminar</a>
                             <?php else: ?>
-                                <a href="../recuperar/recu_asociado.php?id=<?= $asociado['Id_Asociado'] ?>" class="btn btn-success btn-sm">Recuperar</a>
+                                <a href="../recuperar/recu_asociado.php?id=<?= $asociado['Id_Asociado'] ?>"
+                                    class="btn btn-success btn-sm">Recuperar</a>
                             <?php endif; ?>
                         </td>
                     </tr>
