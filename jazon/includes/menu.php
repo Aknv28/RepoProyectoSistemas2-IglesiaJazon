@@ -8,7 +8,7 @@
         <li class="nav-item1"><a href="../index.php" class="nav-link">Inicio</a></li>
         <li class="nav-item1"><a href="index2.php" class="nav-link">Dashboard</a></li>
         <li class="nav-item1"><a href="eventos.php" class="nav-link">Eventos</a></li>
-        <li class="nav-item1"><a href="../reportes.php" class="nav-link">Reportes</a></li>
+        <li class="nav-item1"><a href="reportes.php" class="nav-link">Reportes</a></li>
     </ul>
 </div>
 
