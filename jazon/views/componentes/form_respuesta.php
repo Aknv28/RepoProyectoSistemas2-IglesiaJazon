@@ -101,7 +101,7 @@ $ubicaciones = $stmtU->fetchAll(PDO::FETCH_ASSOC);
                         <div class="col">
                             <label class="form-label"><strong>Fecha se cierran las respuestas:</strong></label>
                             <input type="date" name="fecha_fin" class="form-control"
-                                value="<?= $formulario['Fecha_fin'] ?>">
+                                value="<?= $formulario['Fecha_fin'] ?>" readonly>
                         </div>
                     </div>
 

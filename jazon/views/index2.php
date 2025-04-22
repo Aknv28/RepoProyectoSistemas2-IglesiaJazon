@@ -21,12 +21,13 @@ $usuarioLogeado = isset($_SESSION['ver_log']);
 </head>
 
 <body>
-    <?php include '../includes/menu.php'; ?>
 
     <?php include '../includes/header.php'; ?>
 
 
     <?php if ($usuarioLogeado): ?>
+        <?php include '../includes/menu.php'; ?>
+
         <?php include 'componentes/presentacion.php'; ?>
     <?php else: ?>
         <?php include '../includes/tarjeta.php'; ?>
