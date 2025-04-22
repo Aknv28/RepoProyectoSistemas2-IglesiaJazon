@@ -1,20 +1,43 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jazôn Admin</title>
     <link rel="stylesheet" href="css/style.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Georgia:wght@400&family=Merriweather:wght@400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Georgia:wght@400&family=Merriweather:wght@400&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* Estilo del mensaje */
+        .mensaje-bienvenida {
+            position: fixed;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(217, 255, 0, 0.7);
+            color: white;
+            padding: 20px;
+            font-size: 24px;
+            font-family: 'Georgia', serif;
+            display: none;
+            /* Inicialmente oculto */
+            z-index: 1000;
+            border-radius: 8px;
+        }
+    </style>
 </head>
+
 <body>
 
     <div class="contenedor-principal">
 
         <div class="centro">
-            <img src="img/b.png" alt="Imagen Central" class="imagen-central" > </div>
+            <img src="img/b.png" alt="Imagen Central" class="imagen-central">
+        </div>
 
         <div class="circulo circulo-1">
             <a href="views/eventos.php">EVENTOS</a>
@@ -30,14 +53,30 @@
         </div>
 
     </div>
-<footer class="footer-message">
-  <p>¿Qué significa Jazôn?</p>
-  <p>
-    Es un vocablo hebreo que significa “Visión”, “Sueño”, “Profecía” o
-    “Dirección de Dios”. La Biblia enseña en Proverbios 29. 18a (LBLA): “Donde
-    no hay visión (jazôn), el pueblo se desenfrena.”
-  </p>
-</footer>
+
+     <!-- Mensaje de bienvenida -->
+     <div class="mensaje-bienvenida" id="mensajeBienvenida">
+        Bienvenido a Jazon
+    </div>
+    <footer class="footer-message">
+        <p>¿Qué significa Jazôn?</p>
+        <p>
+            Es un vocablo hebreo que significa “Visión”, “Sueño”, “Profecía” o
+            “Dirección de Dios”. La Biblia enseña en Proverbios 29. 18a (LBLA): “Donde
+            no hay visión (jazôn), el pueblo se desenfrena.”
+        </p>
+    </footer>
+    <script>
+        const mensajeBienvenida = document.getElementById('mensajeBienvenida');
+
+        // Mostrar el mensaje dinámicamente
+        window.onload = function() {
+            setTimeout(() => {
+                mensajeBienvenida.style.display = 'block'; // Mostrar el mensaje
+            }, 500); // Mostrar el mensaje después de medio segundo
+        };
+
+    </script>
     <script>
         const contenedorPrincipal = document.querySelector('.contenedor-principal');
         const circulos = document.querySelectorAll('.circulo');
@@ -98,4 +137,5 @@
         // bgImage.src = 'URL_DE_TU_IMAGEN_DE_FONDO.jpg'; // Reemplaza con la URL real
     </script>
 </body>
+
 </html>

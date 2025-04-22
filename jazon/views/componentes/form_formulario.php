@@ -13,7 +13,6 @@ $horarios = $conn->query("SELECT Id_Horario, Hora_Inicio, Hora_Final FROM horari
 <div class="container mt-5">
     <h2 class="text-center">Formulario de Registro</h2>
 
-    <form method="POST">
         <!-- Campo de Actividad -->
         <div class="mb-3">
             <label for="actividad" class="form-label">Actividad</label>
@@ -82,10 +81,5 @@ $horarios = $conn->query("SELECT Id_Horario, Hora_Inicio, Hora_Final FROM horari
             </select>
         </div>
 
-        <!-- Botones de Submit y Volver -->
-        <div class="text-center">
-            <button type="submit" class="btn btn-primary">Guardar</button>
-            <a href="javascript:history.back()" class="btn btn-secondary">Volver</a>
-        </div>
-    </form>
+        
 </div>

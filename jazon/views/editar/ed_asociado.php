@@ -1,16 +1,28 @@
 <?php
 require_once '../../includes/bd.php';
 $conn = Database::getInstance();
+
+// Recuperar las zonas habilitadas
 $zonaAs = $conn->query("SELECT Id_Zona, NombreZona FROM zona WHERE habilitado = 1")->fetchAll(PDO::FETCH_ASSOC);
 
 // Verificar si se ha enviado un id de asociado para editar
 if (isset($_GET['id'])) {
     $id_asociado = $_GET['id'];
-    // Recuperar los datos del asociado con ese id
-    $sql_asociado = "SELECT a.*, c.NumeroTelefono, c.Correo, u.usuario, u.contrasena
-                     FROM asociados a 
+
+    // Recuperar todos los datos relacionados con el asociado, usuario, contacto, zona y rol
+    $sql_asociado = "SELECT 
+                        a.*, 
+                        c.NumeroTelefono, 
+                        c.Correo, 
+                        u.usuario, 
+                        u.contrasena, 
+                        z.NombreZona, 
+                        r.Tipo as Rol
+                     FROM asociados a
                      LEFT JOIN contactos c ON a.id_contacto = c.id_contacto 
                      LEFT JOIN usuarios u ON a.id_usuario = u.id_usuario 
+                     LEFT JOIN zona z ON a.id_zona = z.Id_Zona 
+                     LEFT JOIN roles r ON u.Id_Rol = r.Id_Rol 
                      WHERE a.id_asociado = :id_asociado";
     $stmt = $conn->prepare($sql_asociado);
     $stmt->bindParam(':id_asociado', $id_asociado);
@@ -79,7 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 if ($stmt_asociado->execute()) {
                     echo "<script>
                             alert('Asociado actualizado exitosamente');
-                            window.location.href = 'agregar_asociado.php';  // Redirigir a la página de listado o similar
+                            window.location.href = '../listas/lst_asociados.php';  // Redirigir a la página de listado o similar
                         </script>";
                     exit();
                 } else {

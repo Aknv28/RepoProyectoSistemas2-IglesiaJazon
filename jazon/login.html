@@ -21,7 +21,7 @@
                 </div>
                 <span class="title">Iglesia Jazon</span>
                 <ul class="nav col-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="index.php" class="nav-link px-2">Inicio</a></li>
+                    <li><a href="index.html" class="nav-link px-2">Inicio</a></li>
                 </ul>
             </div>
         </div>
@@ -37,16 +37,16 @@
             <div class="right-panel">
                 <div class="login-container">
                     <h2>Iniciar Sesión</h2>
-                    <form id="loginForm" action="login.php" method="POST">
+                    <form id="loginForm" action="views/login.php" method="POST">
                         <div class="form-group">
-                            <label for="usuario">Usuario</label>
-                            <input type="text" id="usuario" maxlength="30" name="usuario" required>
+                            <label for="usuario_log">Usuario</label>
+                            <input type="text" id="usuario_log" maxlength="30" name="usuario_log" required>
                             <span id="usuario-error" class="text-danger"></span>
                         </div>
                         <div class="form-group">
-                            <label for="contrasena">Contraseña</label>
+                            <label for="contrasena_log">Contraseña</label>
                             <!-- Cambio aquí: 'type="password"' en lugar de 'type="contrasena"' -->
-                            <input type="password" id="contrasena" maxlength="8" name="contrasena" required>
+                            <input type="password" id="contrasena_log" maxlength="10" name="contrasena_log" required>
                             <span id="password-error" class="text-danger"></span>
                         </div>
 
