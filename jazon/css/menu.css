@@ -1,0 +1,63 @@
+/* Sidebar styles */
+.sidebar {
+    position: fixed;
+    top: 150px;
+    left: 0;
+    height: 40%;
+    width: 225px;
+    background-color: #343a40;
+    padding-top: 50px;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.sidebar.hidden {
+    left: -230px;
+    /* Mueve el sidebar fuera de la pantalla */
+} 
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #2137ff;
+    color: #2137ff;
+}
+
+.sidebar a {
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    font-size: 1rem;
+}
+
+.sidebar a:hover {
+    background-color: #575757;
+}
+
+.sidebar-toggle {
+    position: absolute;
+    top: 10px;
+    right: -40px;
+    background-color: #343a40;
+    color: white;
+    border: none;
+    font-size: 20px;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.sidebar-toggle:hover {
+    background-color: #575757;
+}
+
+/* Main content */
+.main-content {
+    transition: margin-left 0.3s ease;
+    margin-left: 250px; /* El margen coincide con el ancho del sidebar */
+}
+
+.main-content.shift {
+    margin-left: 0; /* Ajuste cuando el sidebar está oculto */
+}
+

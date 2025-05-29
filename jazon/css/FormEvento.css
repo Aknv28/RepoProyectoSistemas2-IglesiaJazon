@@ -1,0 +1,145 @@
+/* Contenedor principal */
+.form-container {
+    background-color: #ffffff; /* Fondo blanco */
+    border: 1px solid #0065F8; /* Bordes naranjas */
+    border-radius: 10px; /* Esquinas redondeadas */
+    padding: 2rem; /* Padding relativo */
+    margin: 7vh auto 5vh auto; /* Márgenes superiores e inferiores relativos */
+    width: 90%; /* Ocupa el 90% del ancho de la ventana */
+    max-width: 600px; /* Ancho máximo en pantallas grandes */
+    min-width: 300px; /* Ancho mínimo para evitar que se rompa */
+    box-shadow: 0 0 10px rgb(0, 0, 0);/* Sombra suave */
+    box-sizing: border-box; /* Incluye padding y bordes en el ancho total */
+}
+
+/* Título */
+h1 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    border-bottom: 3px solid #0065F8; /* Línea naranja */
+    color: #0065F8; /* Naranja */
+    font-size: 2rem;
+}
+
+/* Estilo para los labels */
+.form-container label {
+    display: block; /* Ocupa toda la línea */
+    margin-bottom: 0.5rem;
+    color: #0065F8; /* Naranja */
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+/* Estilo para los inputs */
+.form-container input,
+.form-container textarea {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #0065F8; /* Bordes naranja */
+    border-radius: 5px;
+    background-color: #ffffff; /* Fondo blanco */
+    font-size: 1rem;
+    color: #555555; /* Gris oscuro */
+    box-sizing: border-box; /* Asegura un tamaño consistente */
+}
+
+/* Botón principal */
+.form-container button {
+    background-color: #003092; /* Naranja */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 0.75rem 1rem;
+    font-size: 1.125rem; /* Fuente relativa */
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%; /* Botón de ancho completo */
+}
+
+.form-container button:hover {
+    background-color: #4300FF; /* Naranja más oscuro al pasar el mouse */
+}
+
+/* Enlaces estilizados */
+.form-container .btn {
+    display: inline-block;
+    background-color: #003092; /* Naranja */
+    color: white;
+    text-decoration: none;
+    padding: 0.75rem 1rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+.btn1 {
+    background-color: #003092; /* Naranja */
+    color: white;
+    text-decoration: none;
+    padding: 0.75rem 1rem;
+    border: 1px #4300FF solid;
+    border-radius: 5px;
+    font-size: 1.2rem; /* Texto más grande */
+    margin-bottom: 5vh;
+    text-align: center;
+    display: inline-block;
+}
+.btn1:hover {
+    background-color: #4300FF; /* Naranja más oscuro */
+    border: 2px #ffffff solid;
+}
+.form-container .btn:hover {
+    background-color: #4300FF; /* Naranja más oscuro */
+}
+
+/* Mensajes de error */
+.error-msg {
+    color: red;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+    display: block;
+}
+
+/* Ajustes de responsividad */
+@media (max-width: 768px) {
+    .form-container {
+        padding: 1rem; /* Reduce padding en pantallas pequeñas */
+        width: 95%; /* Ocupa casi todo el ancho */
+    }
+
+    h1 {
+        font-size: 1.5rem; /* Títulos más pequeños */
+    }
+    .btn1 {
+        font-size: 1.125rem; /* Tamaño de fuente */
+    }
+
+    .form-container button,
+    .form-container input,
+    .form-container textarea,
+    .form-container label {
+        font-size: 0.9rem; /* Reduce tamaño del texto */
+    }
+}
+
+@media (max-width: 480px) {
+    .form-container {
+        padding: 1rem; /* Ajusta padding para pantallas muy pequeñas */
+    }
+
+    h1 {
+        font-size: 1.25rem; /* Títulos más pequeños aún */
+    }
+    .btn1 {
+        font-size: 0.5rem; /* Tamaño de fuente */
+    }
+    .form-container button,
+    .form-container input,
+    .form-container textarea,
+    .form-container label {
+        font-size: 0.8rem; /* Reduce tamaño del texto */
+    }
+}
