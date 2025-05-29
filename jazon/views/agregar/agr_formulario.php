@@ -10,15 +10,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $pregunta2 = $_POST['pregunta2'];
     $pregunta3 = $_POST['pregunta3'];
     $pregunta4 = $_POST['pregunta4'];
-    $horario = $_POST['horario'];
     $fecha = $_POST['fecha'];
     $fecha_fin = $_POST['fecha_fin'];
     $habilitado = $_POST['habilitado'];
-    $id_ubicacion = $_POST['id_ubicacion'];
 
     // Insertar los datos en la base de datos
-    $sql = "INSERT INTO formulario (Actividad, Pregunta1, Pregunta2, Pregunta3, Pregunta4, Horario, Fecha, Fecha_fin, habilitado, Id_Ubicacion)
-            VALUES (:actividad, :pregunta1, :pregunta2, :pregunta3, :pregunta4, :horario, :fecha, :fecha_fin, :habilitado, :id_ubicacion)";
+    $sql = "INSERT INTO formulario (Actividad, Pregunta1, Pregunta2, Pregunta3, Pregunta4, Fecha, Fecha_fin, habilitado)
+            VALUES (:actividad, :pregunta1, :pregunta2, :pregunta3, :pregunta4, :fecha, :fecha_fin, :habilitado)";
     
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':actividad', $actividad);
@@ -26,11 +24,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->bindParam(':pregunta2', $pregunta2);
     $stmt->bindParam(':pregunta3', $pregunta3);
     $stmt->bindParam(':pregunta4', $pregunta4);
-    $stmt->bindParam(':horario', $horario);
     $stmt->bindParam(':fecha', $fecha);
     $stmt->bindParam(':fecha_fin', $fecha_fin);
     $stmt->bindParam(':habilitado', $habilitado);
-    $stmt->bindParam(':id_ubicacion', $id_ubicacion);
 
     if ($stmt->execute()) {
         // Redirigir a una página de éxito o mostrar un mensaje
@@ -63,9 +59,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <div class="container mt-5">
     <h2 class="text-center">Formulario de Registro</h2>
     <form method="POST" onsubmit="return validarFormulario();">
-        <?php include '../componentes/form_formulario.php'; ?>
+        <?php include '../componentes/form_formulario2.php'; ?>
         <div class="text-center">
-            <button type="submit" class="btn btn-primary">Agregar Asociado</button>
+            <button type="submit" class="btn btn-primary">Agregar Formulario</button>
             <a href="javascript:history.back()" class="btn btn-secondary">Volver</a>
             <a href="../listas/lst_formularios.php" class="btn btn-secondary">Lista</a>
         </div>

@@ -13,9 +13,9 @@
 /* Select */
 .form-select {
     font-size: 16px;
-    background-color: #fffcd1f6;
-    color: #efb810;
-    border: 1px solid #efb810;
+    background-color: #D9EAFD;
+    color: #0065F8;
+    border: 1px solid #0065F8;
     border-radius: 10px;
     width: 250px; /* Ancho fijo */
     min-width: 200px; /* Ancho mínimo para evitar compresión */
@@ -41,11 +41,11 @@
 
 
 .btn3 {
-    background-color: #ffb920; /* Naranja */
+    background-color: #003092; /* Naranja */
     color: white;
     text-decoration: none;
     padding: 0.75rem 1rem;
-    border: 1px #ffc400 solid;
+    border: 1px #000a64 solid;
     border-radius: 5px;
     font-size: 1.2rem; /* Texto más grande */
     margin-bottom: 5vh;
@@ -53,15 +53,15 @@
     display: inline-block;
 }
 .btn3:hover {
-    background-color: #ff9a00; /* Naranja más oscuro */
+    background-color: #4300FF; /* Naranja más oscuro */
     border: 2px #ffffff solid;
 }
 .btn2 {
-    background-color: #ffb920; /* Naranja */
+    background-color: #0065F8; /* Naranja */
     color: white;
     text-decoration: none;
     padding: 0.75rem 1rem;
-    border: 1px #ffc400 solid;
+    border: 1px #4300FF solid;
     border-radius: 5px;
     font-size: 1.2rem; /* Texto más grande */
     margin: 1rem 0; /* Márgenes arriba y abajo */
@@ -71,7 +71,7 @@
 }
 .btn2:hover {
     background-color: #ffffff; 
-    color: #ffb920;/* Naranja más oscuro */
+    color: #003092;/* Naranja más oscuro */
     border: 2px #ffc400 solid;
 }
 
@@ -93,7 +93,7 @@
     padding: 10px 20px;
     background-color: #ffc421;
     color: #fff;
-    border: 1px solid #efb810;
+    border: 1px solid #0065F8;
     border-radius: 5px;
     cursor: pointer;
 }
@@ -103,11 +103,11 @@
 }
 
 .btn1 {
-    background-color: #ffb920; /* Naranja */
+    background-color: #003092; /* Naranja */
     color: white;
     text-decoration: none;
     padding: 0.75rem 1rem;
-    border: 1px #ffc400 solid;
+    border: 1px #0065F8 solid;
     border-radius: 5px;
     font-size: 1.2rem; /* Texto más grande */
     margin-bottom: 5vh;
@@ -115,7 +115,7 @@
     display: inline-block;
 }
 .btn1:hover {
-    background-color: #ff9a00; /* Naranja más oscuro */
+    background-color: #4300FF; /* Naranja más oscuro */
     border: 2px #ffffff solid;
 }
 

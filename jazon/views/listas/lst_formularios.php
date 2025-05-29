@@ -71,7 +71,7 @@ $habilitado = isset($_GET['habilitado']) ? $_GET['habilitado'] : 1; // Por defec
 
         <div class="text-center">
             <a href="../agregar/agr_formulario.php" class="btn btn-primary">Agregar Nuevo Formulario</a>
-            <a href="javascript:history.back()" class="btn btn-secondary">Volver</a>
+            <a href="../index2.php" class="btn btn-secondary">Volver</a>
         </div>
     </div>
 

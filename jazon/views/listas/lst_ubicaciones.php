@@ -60,7 +60,7 @@ $ubicaciones = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <?php if ($ubicacion['habilitado'] == 1): ?>
                                 <a href="../eliminar/el_ubicacion.php?id=<?= $ubicacion['Id_Ubicacion'] ?>"
                                     class="btn btn-danger btn-sm"
-                                    onclick="return confirm('¿Estás seguro de eliminar esta zona?')">Eliminar</a>
+                                    onclick="return confirm('¿Estás seguro de eliminar esta ubicacion?')">Eliminar</a>
                             <?php else: ?>
                                 <a href="../recuperar/recu_ubicacion.php?id=<?= $ubicacion['Id_Ubicacion'] ?>"
                                     class="btn btn-success btn-sm">Recuperar</a>
@@ -73,7 +73,7 @@ $ubicaciones = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         <div class="text-center">
             <a href="../agregar/agr_ubicacion.php" class="btn btn-primary">Agregar Nueva Ubicación</a>
-            <a href="javascript:history.back()" class="btn btn-secondary">Volver</a>
+            <a href="../index2.php" class="btn btn-secondary">Volver</a>
         </div>
     </div>
 

@@ -66,7 +66,7 @@ $categorias = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         <div class="text-center">
             <a href="../agregar/agr_categoria.php" class="btn btn-primary">Agregar Nueva Categoría</a>
-            <a href="javascript:history.back()" class="btn btn-secondary">Volver</a>
+            <a href="../index2.php" class="btn btn-secondary">Volver</a>
         </div>
     </div>
 

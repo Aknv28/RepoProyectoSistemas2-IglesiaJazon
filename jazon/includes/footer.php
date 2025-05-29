@@ -1,5 +1,5 @@
 <footer class="text-center p-4">
-        <p>Jazon &copy; 2024 </p>
+        <p>Jazon &copy; 2025 </p>
         <h4>¡Apasiónate por tu fe!
             Estamos en todas las redes sociales
             para que puedas encontrar a Dios </h4>

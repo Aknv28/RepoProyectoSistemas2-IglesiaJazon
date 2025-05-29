@@ -13,11 +13,11 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 
     if ($stmt->execute()) {
         echo "<script>
-                alert('Zona recuperado exitosamente');
+                alert('Zona recuperada exitosamente');
                 window.location.href = '../listas/lst_zonas.php';  // Redirigir a la página de listado o similar
               </script>";
     } else {
-        echo "<div class='alert alert-danger text-center'>Error al recuperar zona: " . $conn->errorInfo()[2] . "</div>";
+        echo "<div class='alert alert-danger text-center'>Error al recuperar la zona: " . $conn->errorInfo()[2] . "</div>";
     }
 } else {
     echo "<div class='alert alert-danger text-center'>ID de zona no válido.</div>";

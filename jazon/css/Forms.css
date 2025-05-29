@@ -2,7 +2,7 @@
     background-color: #ffffff;
     padding: 20px;
     border-radius: 8px;
-    border: 2px solid #efb810;
+    border: 2px solid #2137ff;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
     width: 200%;
     height: 330px;
@@ -17,8 +17,8 @@
 h1 {
     text-align: center;
     margin-bottom: 20px;
-    border-bottom: 2px solid #efb810;
-    color: #efb810;
+    border-bottom: 2px solid #2137ff;
+    color: #2137ff;
 }
 
  label {
@@ -33,18 +33,18 @@ form select {
     padding: 10px;
     font-size: 16px;
     margin-bottom: 10px;
-    background-color: #fffcd1f6;
+    background-color: #D9EAFD;
     color: rgb(92, 92, 92);
-    border: 2px solid #ffc825;
+    border: 2px solid #2137ff;
     width: 60%;
     /* Tamaño uniforme */
     border-radius: 10px;
 }
 
 form select:hover {
-    background-color: #ffec7e;
+    background-color: #D9EAFD;
     /* Cambia a un tono más oscuro */
-    border-color: #ffec7e;
+    border-color: #D9EAFD;
     /* Cambia el borde a un dorado más oscuro */
     color: #646464;
     /* Cambia el color del texto a blanco */
@@ -62,5 +62,5 @@ form select:hover {
 }
 
 .btn:hover {
-    background-color: #ffbf00;
+    background-color: #003092;
 }

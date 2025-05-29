@@ -10,9 +10,11 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     $stmt->bindParam(':id', $id_ubicacion);
     // Si no se encuentra la ubicación
     if ($stmt->execute()) {
-        echo "<script> alert('Se habilito la ubicacion')
+        echo "<script> alert('Se recupero la ubicacion')
                     window.location.href = '../listas/lst_ubicaciones.php';
         </script>";
+    }else {
+        echo "<div class='alert alert-danger text-center'>Error al recuperar la ubicacion: " . $conn->errorInfo()[2] . "</div>";
     }
 } else {
     echo "<div class='alert alert-danger text-center'>ID de ubicación no válido.</div>";

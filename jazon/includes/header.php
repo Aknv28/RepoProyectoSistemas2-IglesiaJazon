@@ -19,7 +19,7 @@ if (isset($_SESSION['id_user_log']) && isset($_SESSION['user_log'])) {
     <div class="container-fluid">
         <div class="d-flex flex-wrap align-items-center justify-content-between">
             <div class="title-container">
-                <img src="../img/logo/logoFinal2.png" class="logo" alt="Logo de la Iglesia">
+                <img src="../img/logo/logoAzul.jpg" class="logo" alt="Logo de la Iglesia">
             </div>
             <span class="title">Iglesia Jazon</span>
             <ul class="nav col-lg-auto mb-2 justify-content-center mb-md-0">

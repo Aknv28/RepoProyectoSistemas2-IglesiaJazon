@@ -2,11 +2,14 @@
 require_once '../../includes/bd.php';
 $conn = Database::getInstance();
 
-// Recuperar todos los asociados
-$sql = "SELECT Id_Zona, nombreZona, habilitado
-        FROM zona
-        WHERE habilitado = 1";
-$stmt = $conn->query($sql);
+// Verificar si se ha recibido el parámetro para habilitados/inhabilitados
+$habilitado = isset($_GET['habilitado']) ? $_GET['habilitado'] : 1; // Por defecto muestra habilitados
+
+// Recuperar ubicaciones según el estado de habilitación
+$sql = "SELECT Id_Zona, nombreZona, habilitado FROM zona WHERE habilitado = :habilitado";
+$stmt = $conn->prepare($sql);
+$stmt->bindParam(':habilitado', $habilitado, PDO::PARAM_INT);
+$stmt->execute();
 $zonas = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
@@ -27,6 +30,11 @@ $zonas = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <div class="container mt-5">
         <h2 class="text-center">Listado de Zonas</h2>
 
+        <div class="text-center mb-3">
+            <a href="?habilitado=1" class="btn btn-success btn-sm">Mostrar Habilitadas</a>
+            <a href="?habilitado=0" class="btn btn-warning btn-sm">Mostrar Inhabilitadas</a>
+        </div>
+
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
@@ -42,7 +50,14 @@ $zonas = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <td><?= htmlspecialchars($zona['nombreZona']) ?></td>
                         <td>
                             <a href="../editar/ed_zona.php?id=<?= $zona['Id_Zona'] ?>" class="btn btn-warning btn-sm">Editar</a>
-                            <a href="../eliminar/el_zona.php?id=<?= $zona['Id_Zona'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de eliminar a esta zona?')">Eliminar</a>
+                            <?php if ($zona['habilitado'] == 1): ?>
+                                <a href="../eliminar/el_zona.php?id=<?= $zona['Id_Zona'] ?>" 
+                                    class="btn btn-danger btn-sm" 
+                                    onclick="return confirm('¿Estás seguro de eliminar a esta zona?')">Eliminar</a>
+                            <?php else: ?>
+                                <a href="../recuperar/recu_zona.php?id=<?= $zona['Id_Zona'] ?>"
+                                    class="btn btn-success btn-sm">Recuperar</a>
+                            <?php endif; ?>
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -51,7 +66,7 @@ $zonas = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         <div class="text-center">
             <a href="../agregar/agr_zona.php" class="btn btn-primary">Agregar Nuevo Zona</a>
-            <a href="javascript:history.back()" class="btn btn-secondary">Volver</a>
+            <a href="../index2.php" class="btn btn-secondary">Volver</a>
         </div>
     </div>
 

@@ -85,7 +85,8 @@ $asociados = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         <div class="text-center">
             <a href="../agregar/agr_asociado.php" class="btn btn-primary">Agregar Nuevo Asociado</a>
-            <a href="javascript:history.back()" class="btn btn-secondary">Volver</a>
+            <a href="../index2.php" class="btn btn-secondary">Volver</a>
+
         </div>
     </div>
 

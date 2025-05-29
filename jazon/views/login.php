@@ -21,10 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Verificar si se encontraron los datos del usuario
     if ($stmt->rowCount() > 0) {
         $usuario_data = $stmt->fetch(PDO::FETCH_ASSOC);
-        // Verificar si las contraseñas coinciden
-        echo "Contraseña enviada: " . $contrasena . "<br>";
-        echo "Contraseña en base de datos: " . $usuario_data['Contrasena'] . "<br>";
-
+        
         // Verificar la contraseña
         if ($contrasena === $usuario_data['Contrasena']) {
             $id_rol = $usuario_data['Id_Rol']; // Obtener el id_rol del usuario
@@ -68,10 +65,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 echo "<div class='alert alert-danger'>Rol no encontrado.</div>";
             }
         } else {
-            echo "<div class='alert alert-danger'>Contraseña incorrecta.</div>";
+            echo "<script>alert('Usuario o contraseña no válidos.'); window.location.href = '../login.html';</script>";
         }
     } else {
-        echo "<div class='alert alert-danger'>Usuario no encontrado o deshabilitado.</div>";
+        echo "<script>alert('Usuario o contraseña no válidos.'); window.location.href = '../login.html';</script>";
     }
 }
 ?>

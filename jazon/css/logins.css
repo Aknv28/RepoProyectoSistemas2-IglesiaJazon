@@ -36,11 +36,11 @@
 }
 .left-panel {
     background-color: #ffffff00;
-    color: gold;
+    color: #2137ff;
 }
 .right-panel {
     background-color: #ffffff00;
-    color: gold;
+    color: #2137ff;
     font-family: 'Acme', sans-serif;
 }
 
@@ -55,25 +55,25 @@
 .login-container h2 {
     text-align: center;
     font-family: 'Acme', sans-serif;
-    color: #d3b03d;
+    color: #2137ff;
     margin-bottom: 20px;
     font-size: 2rem; /* Tamaño de fuente */
 }
 .form-group label {
-    color: #dfbd00;
+    color: #578FCA;
     font-size: 18px;
 }
 .form-group input, .form-group select {
     width: 100%;
     padding: 8px;
-    border: 2px solid #fcc530;
+    border: 2px solid #4300FF;
     background-color: #ffffff;
-    color: rgb(223, 189, 0);
+    color: #0065F8;
     border-radius: 4px;
 }
 .form-group input:focus, .form-group select:focus {
-    border-color: #ffd900;
-    background-color: #fff09a;
+    border-color: #0065F8;
+    background-color: #D9EAFD;
     outline: none;
 }
 
@@ -82,8 +82,8 @@
     margin-top: 10px;
     width: 100%;
     padding: 10px;
-    background-color: #ffce2d;
-    border: 2px solid gold;
+    background-color: #4300FF;
+    border: 2px solid #4300FF;
     color: #ffffff;
     border-radius: 4px;
     cursor: pointer;
@@ -91,8 +91,8 @@
 }
 .btnForm:hover {
     background-color: #ffffff;
-    border: 2px solid gold;
-    color: gold;
+    border: 2px solid #3674B5;
+    color: #3674B5;
 }
 
 /*TIPO DE LETRA PALMER */
@@ -112,7 +112,7 @@
 
 /* Mensaje */
 .mensaje {
-    background-color: #fff2a7;
+    background-color: #D9EAFD;
     opacity: 0.8;
     color: #757575;
     padding: 15px;
@@ -132,7 +132,7 @@
 }
 .contra {
     cursor: pointer;
-    color: #d3b03d;
+    color: #578FCA;
     text-decoration: none;
     font-size: 17px;
 }   

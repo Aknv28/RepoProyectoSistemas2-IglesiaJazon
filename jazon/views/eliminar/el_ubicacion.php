@@ -5,6 +5,7 @@ $conn = Database::getInstance();
 // Verificar si se envió un ID por GET
 if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     $id_ubicacion = $_GET['id'];
+    
     $sql = "UPDATE ubicacion SET habilitado = 0 WHERE Id_Ubicacion = :id";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':id', $id_ubicacion);

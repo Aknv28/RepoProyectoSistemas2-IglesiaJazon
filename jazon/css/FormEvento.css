@@ -1,7 +1,7 @@
 /* Contenedor principal */
 .form-container {
     background-color: #ffffff; /* Fondo blanco */
-    border: 1px solid #ffc400; /* Bordes naranjas */
+    border: 1px solid #0065F8; /* Bordes naranjas */
     border-radius: 10px; /* Esquinas redondeadas */
     padding: 2rem; /* Padding relativo */
     margin: 7vh auto 5vh auto; /* Márgenes superiores e inferiores relativos */
@@ -16,8 +16,8 @@
 h1 {
     text-align: center;
     margin-bottom: 1.5rem;
-    border-bottom: 3px solid #facf40; /* Línea naranja */
-    color: #fad14c; /* Naranja */
+    border-bottom: 3px solid #0065F8; /* Línea naranja */
+    color: #0065F8; /* Naranja */
     font-size: 2rem;
 }
 
@@ -25,7 +25,7 @@ h1 {
 .form-container label {
     display: block; /* Ocupa toda la línea */
     margin-bottom: 0.5rem;
-    color: #dfbd00; /* Naranja */
+    color: #0065F8; /* Naranja */
     font-weight: bold;
     font-size: 1rem;
 }
@@ -36,7 +36,7 @@ h1 {
     width: 100%;
     padding: 0.75rem;
     margin-bottom: 1rem;
-    border: 1px solid #dfab00fd; /* Bordes naranja */
+    border: 1px solid #0065F8; /* Bordes naranja */
     border-radius: 5px;
     background-color: #ffffff; /* Fondo blanco */
     font-size: 1rem;
@@ -46,7 +46,7 @@ h1 {
 
 /* Botón principal */
 .form-container button {
-    background-color: #ffb920; /* Naranja */
+    background-color: #003092; /* Naranja */
     color: white;
     border: none;
     border-radius: 5px;
@@ -58,13 +58,13 @@ h1 {
 }
 
 .form-container button:hover {
-    background-color: #ff9a00; /* Naranja más oscuro al pasar el mouse */
+    background-color: #4300FF; /* Naranja más oscuro al pasar el mouse */
 }
 
 /* Enlaces estilizados */
 .form-container .btn {
     display: inline-block;
-    background-color: #ffb920; /* Naranja */
+    background-color: #003092; /* Naranja */
     color: white;
     text-decoration: none;
     padding: 0.75rem 1rem;
@@ -76,11 +76,11 @@ h1 {
 }
 
 .btn1 {
-    background-color: #ffb920; /* Naranja */
+    background-color: #003092; /* Naranja */
     color: white;
     text-decoration: none;
     padding: 0.75rem 1rem;
-    border: 1px #ffc400 solid;
+    border: 1px #4300FF solid;
     border-radius: 5px;
     font-size: 1.2rem; /* Texto más grande */
     margin-bottom: 5vh;
@@ -88,11 +88,11 @@ h1 {
     display: inline-block;
 }
 .btn1:hover {
-    background-color: #ff9a00; /* Naranja más oscuro */
+    background-color: #4300FF; /* Naranja más oscuro */
     border: 2px #ffffff solid;
 }
 .form-container .btn:hover {
-    background-color: #ffa51e; /* Naranja más oscuro */
+    background-color: #4300FF; /* Naranja más oscuro */
 }
 
 /* Mensajes de error */
