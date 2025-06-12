@@ -5,17 +5,14 @@ $conn = Database::getInstance();
 // Determinar el valor de habilitado según el filtro
 $habilitado = isset($_GET['habilitado']) ? $_GET['habilitado'] : 1; // Por defecto, se muestran habilitados
 
-// Recuperar los formularios basados en el valor de habilitado
-$sql = "SELECT Id_Formulario, actividad, fecha, habilitado
+// Recuperar los formularios basados en el valor de habilitado, incluyendo el Id_Evento
+$sql = "SELECT Id_Formulario, actividad, fecha, habilitado, id_evento
         FROM formulario
         WHERE habilitado = :habilitado";
 $stmt = $conn->prepare($sql);
 $stmt->bindParam(':habilitado', $habilitado, PDO::PARAM_INT);
 $stmt->execute();
 $formularios = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-$habilitado = isset($_GET['habilitado']) ? $_GET['habilitado'] : 1; // Por defecto, se muestran habilitados
-
 ?>
 
 <!DOCTYPE html>
@@ -62,6 +59,12 @@ $habilitado = isset($_GET['habilitado']) ? $_GET['habilitado'] : 1; // Por defec
                                 <a href="../eliminar/el_formulario.php?id=<?= $formulario['Id_Formulario'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de eliminar este formulario?')">Eliminar</a>
                             <?php else: ?>
                                 <a href="../recuperar/recu_formulario.php?id=<?= $formulario['Id_Formulario'] ?>" class="btn btn-success btn-sm">Recuperar</a>
+                            <?php endif; ?>
+                            <!-- Botón Reporte PDF por evento individual -->
+                            <?php if (!empty($formulario['id_evento'])): ?>
+                                <a href="../reportes/report_event.php?Id_Evento=<?= intval($formulario['id_evento']) ?>" target="_blank" class="btn btn-primary btn-sm">
+                                    <i class="bi bi-file-earmark-pdf"></i> Reporte PDF
+                                </a>
                             <?php endif; ?>
                         </td>
                     </tr>
