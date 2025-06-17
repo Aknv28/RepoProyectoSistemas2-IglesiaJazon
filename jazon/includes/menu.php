@@ -1,26 +1,27 @@
-<link rel="stylesheet" href="../css/menu.css">
-
-<!-- Sidebar -->
-<div class="sidebar">
-    <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
-    <h2 class="text-center text-white">Menú</h2>
-    <ul class="nav flex-column">
-        <li class="nav-item1"><a href="../index.php" class="nav-link">Inicio</a></li>
-        <li class="nav-item1"><a href="index2.php" class="nav-link">Dashboard</a></li>
-        <li class="nav-item1"><a href="eventos.php" class="nav-link">Eventos</a></li>
-        <li class="nav-item1"><a href="reportes.php" class="nav-link">Reportes</a></li>
-    </ul>
-</div>
-
-
-<!-- Scripts de Bootstrap -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="../js/conIndex.js"></script>
-
+<link rel="stylesheet" href="../css/panel_gestion.css">
+<button class="menu-toggle-btn" onclick="toggleSidebarMenu()">☰ Menú</button>
+<aside class="sidebar-custom flex-shrink-0" id="sidebarMenu">
+    <h2 class="sidebar-h2">Menú</h2>
+    <nav>
+        <ul>
+            <li class="mb-3">
+                <a href="../index.php" class="sidebar-link">Inicio</a>
+            </li>
+            <li class="mb-3">
+                <a href="index2.php" class="sidebar-link active">Dashboard</a>
+            </li>
+            <li class="mb-3">
+                <a href="eventos.php" class="sidebar-link">Eventos</a>
+            </li>
+            <li class="mb-3">
+                <a href="reportes.php" class="sidebar-link">Reportes</a>
+            </li>
+        </ul>
+    </nav>
+</aside>
 <script>
-    // Función para alternar el sidebar
-    function toggleSidebar() {
-        document.querySelector('.sidebar').classList.toggle('hidden');
-        document.querySelector('.main-content').classList.toggle('shift');
-    }
+function toggleSidebarMenu() {
+    var sidebar = document.getElementById('sidebarMenu');
+    sidebar.classList.toggle('active');
+}
 </script>

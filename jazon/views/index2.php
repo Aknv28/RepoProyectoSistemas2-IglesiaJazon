@@ -26,7 +26,6 @@ $usuarioLogeado = isset($_SESSION['ver_log']);
 
 
     <?php if ($usuarioLogeado): ?>
-        <?php include '../includes/menu.php'; ?>
 
         <?php include 'componentes/presentacion.php'; ?>
     <?php else: ?>

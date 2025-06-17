@@ -39,7 +39,25 @@ $resultados = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <!-- CONTENIDO -->
     <div class="container">
         <h1>Generación de Reportes</h1>
-        <!-- Reporte de Actividad -->
+        
+            <!-- Reporte de Actividad -->
+        <form id="form_reporte_evento" method="GET" action="reportes/report_event.php" target="_blank" onsubmit="return validarEventoSeleccionado();">
+            <div class="form-group mb-3">
+                <label class="form-label mb-2" for="evento">Reporte de eventos</label>
+                <div class="d-flex align-items-center gap-2">
+                    <select name="Id_Evento" id="evento" class="form-select w-auto" required style="min-width: 250px;">
+                        <option value="">Seleccione...</option>
+                        <?php foreach ($eventos as $evento): ?>
+                            <option value="<?= $evento['Id_Eventos'] ?>"><?= htmlspecialchars($evento['Nombre']) ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                    <button type="submit" class="btn btn-primary">Generar Reporte</button>
+                </div>
+            </div>
+        </form>
+
+
+          <!-- Reporte de Actividad -->
         <form action="reportes/r_eventos.php" method="POST">
 
             <div class=" form-group mb-3 ">
@@ -49,7 +67,7 @@ $resultados = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <option value="">Seleccione...</option>
                     <?php foreach ($eventos as $evento): ?>
                         <option value=<?= $evento['Id_Eventos'] ?>> <?= $evento['Nombre'] ?></option>";
-                    <?php endforeach; ?>
+                    <?php endforeach; ?> 
                 </select>
                 <input type="hidden" name="actividad_id" id="actividad_id">
                 <button type="submit" name="registro_actividad" value="true" class="btn2 btn-primary ms-2 ">Generar
@@ -75,6 +93,16 @@ $resultados = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </div>
         </form>
         <a href="javascript:history.back()" class="btn btn-secondary">Volver</a>
+<script>
+function validarEventoSeleccionado() {
+    const eventoSelect = document.getElementById('evento');
+    if (!eventoSelect.value) {
+        alert('Por favor, selecciona un evento.');
+        return false;
+    }
+    return true;
+}
+</script>
 
 </body>
 
